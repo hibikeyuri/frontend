@@ -1,0 +1,40 @@
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js"></script>
+    <title>Canvas</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <script>
+        let canvas=document.getElementById("myCanvas");
+        let context=canvas.getContext("2d");
+        context.fillStyle="#DFEFE0";
+        context.strokeStyle="#00ffff";
+        
+        context.fillRect(0, 0, 100, 25);
+        context.fillStyle="rgba(255, 99, 132, 0.2)";
+        context.fillRect(0, 60, 100 ,50);
+        context.fillStyle="rgba(54, 162, 235, 0.2)";
+        context.fillRect(0, 120, 100 ,50);
+        context.fillStyle="rgba(255, 206, 86, 0.2)";
+        context.fillRect(0, 180, 100 ,50);
+        context.fillStyle="rgba(75, 192, 192, 0.2)";
+        context.fillRect(0, 240, 100 ,50);
+        context.fillStyle="rgba(153, 102, 255, 0.2)";
+        context.fillRect(0, 240, 100 ,50);
+        context.fillStyle="rgba(75, 192, 192, 0.2)";
+        context.fillRect(0, 300, 100 ,50);
+
+  
+    </script>
+</body>
+
+</html>

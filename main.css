@@ -1,0 +1,144 @@
+* {
+    border: 1px solid black;
+}
+
+html, body {
+    /* border: 2px solid darkgoldenrod; */
+    background-color: var(--skin);
+    height: 100%; width: 100%;
+    padding: 0px; margin: 0px;
+}
+/* for border debug */
+
+/* h1 {
+    color: rgb(34, 113, 153);
+    font-size: 50px;
+}
+
+div.test{
+    background-color: rgb(34, 113, 153);
+    height: 50vh;
+    width: 70vw;
+} */
+
+/* for color chart */
+:root {
+    --skin: #FEF9E8;
+    --leftdivcolor: #DFEFE0;
+    --rightdivcolor: #FCE2D9;
+
+}
+
+h1, p{
+    font-family: 'Yu Mincho';
+    src: 
+        local('Yu Mincho'),
+        url('yumin.ttf');
+    /* border: 2px green solid; */
+    margin: 10px;
+    padding: 20px;
+}
+
+/* section#intro {
+    
+} */
+
+section#intro, section#official {
+    height: 100%;
+}
+
+/* section#intro .maindiv {
+    background-color: ;
+    width: ;
+    border-radius: ;
+    padding: ;
+} */
+
+section#intro , .leftdiv , .rightdiv {
+    overflow: hidden;
+}
+
+
+.maindiv {
+    border: 2px solid blueviolet;
+    display: flex;
+    height: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.leftdiv {
+    /* border:2px solid red; */
+    width: 65%; height: 60%;
+    border-radius: 20px 0px 0px 20px;
+    background-color: var(--leftdivcolor);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.rightdiv {
+    /* border:2px solid yellow; */
+    width: 35%; height: 60%;
+    border-radius: 0px 20px 20px 0px;
+    background-color: var(--rightdivcolor);
+    margin-top: auto;
+    margin-bottom: auto;
+    background-image: url(FLOWERS_Sidebar.png);
+    background-size: 100% 100%;
+}
+
+.leftdiv, .rightdiv {
+    display: inline-block;
+}
+
+section#official {
+    display: flex;
+}
+
+.seasonbanner {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.spring {
+    background-image: 
+    url(flowers1st_enter.png),
+    url(spring_back.png);
+    background-repeat: 
+        no-repeat,
+        repeat;
+    width: 100%; height: 100%;
+}
+
+.summer {
+    background-image: 
+        url(flowers2nd_enter.png),
+        url(summer_back.png);
+    background-repeat: 
+        no-repeat,
+        repeat;
+    width: 100%; height: 100%;
+}
+
+.autumn {
+    background-image: 
+        url(flowers3rd_enter.png),
+        url(autumn_back.png);
+    background-repeat: 
+        no-repeat,
+        repeat;
+    width: 100%; height: 100%;
+}
+
+.winter {
+    background-image:
+        url(flowers4th_enter.png),
+        url(winter_back.png);
+    background-repeat: 
+        no-repeat,
+        repeat;
+     
+    width: 100%; height: 100%;
+}
+
