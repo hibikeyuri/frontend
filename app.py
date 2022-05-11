@@ -5,5 +5,7 @@ app = Flask(__name__)
 def index():
     return "Hello Flask"
 
+def test():
+    pass
 
 app.run()
