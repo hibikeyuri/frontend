@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>test website</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member system</title>
 </head>
 <body>
-    <h3>main site</h3>
-    <form action="/calculate" method="POST">
-        digital <input type="text" name="max" />
-        <button>calculate sum</button>
+    <h2>member system page</h2>
+    <div>wellcome to my website</div>
+    <h3>member rigister</h3>
+    <form action="/signup" method="POST">
+        nickname <input type="text" name="nickname" /><br/>
+        email <input type="text" name="email" /><br/>
+        password <input type="password" name="password" /><br/>
+        <button>register</button>
     </form>
-    <hr/>
-    <form action="/show" method="POST">
-        name <input type="text" name='n'/>
-        <button>post your form</button>
+    <h3>member login</h3>
+    <form action="/signin" method="POST">
+        email <input type="text" name="email" /><br/>
+        password <input type="password" name="password" /><br/>
+        <button>login</button> 
     </form>
-    <a href="/page">link to page</a>
-    <br/>
-    <img src="/FLOWERS_Sidebar.png"/>
 </body>
 </html>

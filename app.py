@@ -1,46 +1,72 @@
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask import session
+from crypt import methods
+from gc import collect
+import pymongo
+db = client.member_system
+print("database has build successfully!")
+
+from flask import *
 
 
 app = Flask(__name__, static_folder="public", static_url_path="/")
 #setting session key
 app.secret_key = "nozomizore_is_the_best"
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/page")
-def page():
-    return render_template("page.html")
+@app.route("/member")
+def member():
+    if "nickname" in session:
+        return render_template("member.html")
+    else:
+        return redirect ("/")
 
-@app.route("/show", methods=["POST"])
-def show():
-    name = request.args.get("n", "")
-    return "Hello Flask " + name
+@app.route("/error")
+def error():
+    message = request.args.get("msg", "error occurred, please contact customer service")
+    return render_template("error.html", message=message)
 
-@app.route("/calculate", methods=["POST"])
-def calculate():
-    #digit = request.args.get("max", "")
-    digit = request.form["max"]
-    digit = int(digit)
-    result = 0
-    for i in range(1, digit+1):
-        result += i
-    #return "result is: " + str(result)
-    return render_template("result.html", data=result)
+@app.route("/signup", methods=["POST"])
+def signup():
+    nickname = request.form["nickname"]
+    email = request.form["email"]
+    password = request.form["password"]
+    
+    collection = db.user
+    result = collection.find_one({
+        "email": email
+    })
+    if result != None:
+        return redirect("/error?msg=email_has_been_registered")
+    collection.insert_one({
+        "nickname": nickname,
+        "email": email,
+        "password": password
+    })
+    return redirect("/")
 
-@app.route("/hello")
-def hello():
-    name = request.args.get("name", "")
-    session["username"] = name #session["field name"] = data
-    return "welcome, " + name
+@app.route("/signin", methods=["POST"])
+def signin():
+    email = request.form["email"]
+    password = request.form["password"]
+    
+    collection = db.user
+    result = collection.find_one({
+        "$and": [
+            {"email": email},
+            {"password": password}
+        ]
+    })
+    if result == None:
+        return redirect("/error?msg=accout or password error")
+    session["nickname"] = result["nickname"]
+    return redirect("/member")
 
-@app.route("/talk")
-def talk():
-    name = session["username"]
-    return name + ", Nice to meet you!"
+@app.route("/signout")
+def signout():
+    del session["nickname"]
+    return redirect("/")
+
 
 app.run()
