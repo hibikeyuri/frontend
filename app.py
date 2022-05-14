@@ -68,5 +68,8 @@ def signout():
     del session["nickname"]
     return redirect("/")
 
+@app.route("/test")
+def test():
+    pass
 
 app.run()
