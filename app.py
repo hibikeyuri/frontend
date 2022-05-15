@@ -1,10 +1,15 @@
 from crypt import methods
 from gc import collect
 import pymongo
-db = client.member_system
-print("database has build successfully!")
-
 from flask import *
+
+
+f = open("mongokey", "r")
+tempstring = f.readline()
+client = pymongo.MongoClient(tempstring)
+db = client.member_system
+f.close()
+print("database has build successfully!")
 
 
 app = Flask(__name__, static_folder="public", static_url_path="/")
@@ -70,6 +75,10 @@ def signout():
 
 @app.route("/test")
 def test():
+    pass
+
+@app.route("/test2")
+def test2():
     pass
 
 app.run()
